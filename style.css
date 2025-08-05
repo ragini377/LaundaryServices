@@ -352,8 +352,8 @@ table tr:last-child td {
 #service-Added-item-book h3{
     padding-top: 10px;
      padding-left: 10px;
-    
      margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .added-container{
@@ -438,6 +438,7 @@ table tr:last-child td {
   margin-bottom: 1px;
   font-weight: 500;
   margin-top: 2px;
+    font-size: 15px;
 }
 
 .form-group input {
@@ -681,6 +682,7 @@ footer{
   color:green;
   margin-left: 5px;
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
+
 }
