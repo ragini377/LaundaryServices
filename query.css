@@ -169,6 +169,11 @@ margin-top: 30px;
 .Primumservice p{
   font-size: 13px;
 }
+#booking-confirm{
+  
+  margin-top: 18px;
+  
+}
 }
 /* for small phone to small tablet  481 t0 767px*/
 @media only screen and (max-width: 767px) {
@@ -558,6 +563,7 @@ margin: 0 auto;
 
 
 }
+
 
 
 
