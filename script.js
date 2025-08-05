@@ -75,8 +75,7 @@ function removeItem(button) {
     if (row.getAttribute("data-name") === servicename) {
       tbody.removeChild(row);
       total -= serviceprice;
-       document.getElementById("additemMsgshow").style.display = "block";
-  document.getElementById("additemdisplayid").style.display = "none";
+
   const bookingConfirm = document.getElementById("booking-confirm");
    bookingConfirm.innerHTML = "";
 
@@ -93,3 +92,4 @@ function removeItem(button) {
 
   document.getElementById("totalPrice").innerText = "₹" + total.toFixed(2);
 }
+
