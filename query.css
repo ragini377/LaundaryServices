@@ -400,6 +400,13 @@ button ion-icon {
     font-size: 25px;
    
 }
+   #booking-confirm{
+  color:green;
+  margin-left: 5px;
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 500;
+}
 }
 /* for small phone 0 t0 480px*/
 @media only screen and (max-width: 480px) {
@@ -544,4 +551,5 @@ margin: 0 auto;
 
 
 }
+
 
