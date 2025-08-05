@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       emailjs.sendForm("service_99nduch", "template_nihvsxt", form)
         .then(() => {
-          document.getElementById("booking-confirm").innerHTML = " “Thank you For Booking the Service.We will get back to you soon!”"
+          document.getElementById("booking-confirm").innerHTML = " “Thank you For Booking the Service.We contact you soon!”"
           // alert("✅ Email sent to user.");
           form.reset();
         })
@@ -17,4 +17,5 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+
 
