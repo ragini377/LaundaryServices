@@ -55,6 +55,13 @@
     
     
 }
+   #booking-confirm{
+  color:green;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
 
 /* for small phone to big tablet  768 t0 1023*/
 @media only screen and (max-width: 1023px) {
@@ -551,5 +558,6 @@ margin: 0 auto;
 
 
 }
+
 
 
