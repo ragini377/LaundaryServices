@@ -443,7 +443,7 @@ table tr:last-child td {
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -686,3 +686,4 @@ footer{
   font-weight: 500;
 
 }
+
