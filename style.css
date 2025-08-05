@@ -352,8 +352,9 @@ table tr:last-child td {
 #service-Added-item-book h3{
     padding-top: 10px;
      padding-left: 10px;
+    
      margin-top: 10px;
-    margin-bottom: 5px;
+     margin-bottom: 5px;
 }
 
 .added-container{
@@ -684,8 +685,4 @@ footer{
   margin-top: 6px;
   font-size: 14px;
   font-weight: 500;
-
 }
-
-
-
