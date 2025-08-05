@@ -18,6 +18,8 @@ buttons.forEach(function (button) {
        icon.classList.remove("icon-red");
          button.appendChild(icon); // Re-append the icon
       button.classList.remove("removeBtn");
+      
+      
     } else {
       addItem(button);
       button.innerText = "Remove";
@@ -25,13 +27,17 @@ buttons.forEach(function (button) {
         icon.classList.add("icon-red");
       button.appendChild(icon); 
       button.classList.add("removeBtn");
+      
     }
   });
 });
 
 function addItem(button) {
+ 
   document.getElementById("additemMsgshow").style.display = "none";
   document.getElementById("additemdisplayid").style.display = "block";
+ 
+
 
   const servicename = button.getAttribute("data-name");
   const serviceprice = parseFloat(button.getAttribute("data-price")).toFixed(2);
@@ -69,6 +75,12 @@ function removeItem(button) {
     if (row.getAttribute("data-name") === servicename) {
       tbody.removeChild(row);
       total -= serviceprice;
+       document.getElementById("additemMsgshow").style.display = "block";
+  document.getElementById("additemdisplayid").style.display = "none";
+  const bookingConfirm = document.getElementById("booking-confirm");
+   bookingConfirm.innerHTML = "";
+
+      
     }
   });
 
