@@ -1,12 +1,15 @@
 let serialNo = 1;
 let total = 0;
 
+document.getElementById("hamburger").addEventListener("click", function () {
+  document.getElementById("nav-links").classList.toggle("show");
+});
 const buttons = document.querySelectorAll(".addBtn");
 
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
     const servicename = button.getAttribute("data-name");
-       const icon = button.querySelector("ion-icon");
+    const icon = button.querySelector("ion-icon");
 
     // Check if service is already in table
     const isAdded = document.querySelector(`#tableBody tr[data-name="${servicename}"]`);
@@ -14,29 +17,29 @@ buttons.forEach(function (button) {
     if (isAdded) {
       removeItem(button);
       button.innerText = "Add Item";
-       icon.setAttribute("name", "add-circle-outline");
-       icon.classList.remove("icon-red");
-         button.appendChild(icon); // Re-append the icon
+      icon.setAttribute("name", "add-circle-outline");
+      icon.classList.remove("icon-red");
+      button.appendChild(icon); // Re-append the icon
       button.classList.remove("removeBtn");
-      
-      
+
+
     } else {
       addItem(button);
       button.innerText = "Remove";
       icon.setAttribute("name", "remove-circle-outline");
-        icon.classList.add("icon-red");
-      button.appendChild(icon); 
+      icon.classList.add("icon-red");
+      button.appendChild(icon);
       button.classList.add("removeBtn");
-      
+
     }
   });
 });
 
 function addItem(button) {
- 
+
   document.getElementById("additemMsgshow").style.display = "none";
   document.getElementById("additemdisplayid").style.display = "block";
- 
+
 
 
   const servicename = button.getAttribute("data-name");
@@ -75,11 +78,12 @@ function removeItem(button) {
     if (row.getAttribute("data-name") === servicename) {
       tbody.removeChild(row);
       total -= serviceprice;
+      //      document.getElementById("additemMsgshow").style.display = "block";
+      // document.getElementById("additemdisplayid").style.display = "none";
+      const bookingConfirm = document.getElementById("booking-confirm");
+      bookingConfirm.innerHTML = "";
 
-  const bookingConfirm = document.getElementById("booking-confirm");
-   bookingConfirm.innerHTML = "";
 
-      
     }
   });
 
@@ -92,4 +96,3 @@ function removeItem(button) {
 
   document.getElementById("totalPrice").innerText = "₹" + total.toFixed(2);
 }
-
