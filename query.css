@@ -1,572 +1,98 @@
+let serialNo = 1;
+let total = 0;
+
+document.getElementById("hamburger").addEventListener("click", function () {
+  document.getElementById("nav-links").classList.toggle("show");
+});
+const buttons = document.querySelectorAll(".addBtn");
+
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    const servicename = button.getAttribute("data-name");
+    const icon = button.querySelector("ion-icon");
+
+    // Check if service is already in table
+    const isAdded = document.querySelector(`#tableBody tr[data-name="${servicename}"]`);
+
+    if (isAdded) {
+      removeItem(button);
+      button.innerText = "Add Item";
+      icon.setAttribute("name", "add-circle-outline");
+      icon.classList.remove("icon-red");
+      button.appendChild(icon); // Re-append the icon
+      button.classList.remove("removeBtn");
 
 
-
-
-
-
-/* for big tablet 1200px*/
-@media only screen and (max-width: 1200px) {
-   
-    .hero-container
-    {
-        width: 100%;
-        top:50%;
-        left:50%;
-    }
-
-  .service-Added-item{
-    width: 340px;
-    height: 400px;
-    margin-top: 20px;
-    margin-left: 55px;
-    padding-top: 5px;
-    padding-left: 8px;
-         
-    }
-    #service-Added-item-book h3{
-    padding-top: 10px;
-     padding-left: 10px;
-     margin-top: 10px;
-    }
-#service-Added-item-book{
-   width: 350px;
-    height: 260px;
-    margin-left: 55px;
-    border-radius: 10px;
-}
-#book-now-button{
-    height: 40px;
-    width: 300px;
-    background-color: #1f6bb0;
-    text-align: center;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 20px;
-    justify-content: center;
-}
-    .service-Added-item-book{
-        margin-left: 10px;
-        padding-left: 8px;
+    } else {
+      addItem(button);
+      button.innerText = "Remove";
+      icon.setAttribute("name", "remove-circle-outline");
+      icon.classList.add("icon-red");
+      button.appendChild(icon);
+      button.classList.add("removeBtn");
 
     }
-    .divider-hori-added{
-  height: 1px; /* adjust height as needed */
-  width: 260px;
-    
-    
-}
-#booking-confirm{
-  color:green;
-  margin-left: 10px;
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 500;
+  });
+});
+
+function addItem(button) {
+
+  document.getElementById("additemMsgshow").style.display = "none";
+  document.getElementById("additemdisplayid").style.display = "block";
+
+
+
+  const servicename = button.getAttribute("data-name");
+  const serviceprice = parseFloat(button.getAttribute("data-price")).toFixed(2);
+  const tbody = document.getElementById("tableBody");
+
+  const newRow = document.createElement("tr");
+  newRow.setAttribute("data-name", servicename);
+
+  const cell1 = document.createElement("td");
+  const cell2 = document.createElement("td");
+  const cell3 = document.createElement("td");
+
+  cell1.innerText = serialNo;
+  cell2.innerText = servicename;
+  cell3.innerText = "₹" + serviceprice;
+
+  newRow.appendChild(cell1);
+  newRow.appendChild(cell2);
+  newRow.appendChild(cell3);
+  tbody.appendChild(newRow);
+
+  total += parseFloat(serviceprice);
+  document.getElementById("totalPrice").innerText = "₹" + total.toFixed(2);
+
+  serialNo++;
 }
 
-/* for small phone to big tablet  768 t0 1023*/
-@media only screen and (max-width: 1023px) {
-        
-                body{font-size: 18px;
-                }
-                section{padding: 60px 0;}
-                
- #services{
-    width: 100%;
-    height: 85px;
-    background-color: #3090da;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap:70px;
-    color: #312d2d;
-    padding-bottom: 10px;
-}
-#services h2{
-    padding-top: 8x;
-    font-size: 25px;
-}
-#services h4
-{
-    padding-top: 8x;
-   font-size: 15px;
-   padding-bottom: 8px;
- }
- .service-section{
-  
-    width: 100vw;
-    height: auto;
-    margin-top: 10px;
-    
-}
-.center-box{
-            width:100%;
-            height:auto;
-              background-color: #e0ddf3;
-            
-            margin: 0 auto;
-            
-                }
-.service-list{
-    width: 500px;
-    height: auto;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-top: 2px;
-    gap:30px;
-   
-  }
-  .service-Added-item{
-       width: 390px;
-       height: 400px;
-   
-    background-color: white;
-    margin-top: 20px;
-    margin-left: 37px;
-    border-radius: 10px;
-    padding-top: 5px;
-   
-   
+function removeItem(button) {
+  const servicename = button.getAttribute("data-name");
+  const serviceprice = parseFloat(button.getAttribute("data-price"));
+  const tbody = document.getElementById("tableBody");
 
-}
-#service-Added-item-book{
-   width: 400px;
-    height: 280px;
-    background-color: white;
-    margin-left: 37px;
-    border-radius: 10px;
-}
-#service-Added-item-book h3{
-    padding-top: 10px;
-     padding-left: 10px;
-    
-     margin-top: 10px;
-}
-.section-quality{
- width: 100vw;
-    height: auto;
-    margin-top: 0px;
-    
-}
-.Primumservice h1{
+  const rows = tbody.querySelectorAll("tr");
+  rows.forEach((row) => {
+    if (row.getAttribute("data-name") === servicename) {
+      tbody.removeChild(row);
+      total -= serviceprice;
+      //      document.getElementById("additemMsgshow").style.display = "block";
+      // document.getElementById("additemdisplayid").style.display = "none";
+      const bookingConfirm = document.getElementById("booking-confirm");
+      bookingConfirm.innerHTML = "";
 
-  font-size: 30px;
 
-}
-.Primumservice h3{
-
-  font-size: 20px;
-
-}
-.footer-link{
-  font-size: 13px;
-  
-}
-.footer-div{
-margin-top: 30px;
-}
-.Primumservice p{
-  font-size: 13px;
-}
-#booking-confirm{
-  
-  margin-top: 18px;
-  
-}
-}
-/* for small phone to small tablet  481 t0 767px*/
-@media only screen and (max-width: 767px) {
-    html{
-  max-width: 100%;
-  overflow-x: hidden;
-}
-    body{font-size: 12px;
-        text-align: center;
-        width: 100%;
     }
-    section{padding: 30px 0px;}
-  
-   .navbar{display: none;}
- 
-    
-    .hero-container{ padding: 0 10%;
-  width: 100%; /* use percentage instead of vw */
-  box-sizing: border-box;
+  });
 
-      
-    }
-    
-        .col{
-        width: 50%;
-        margin: 0 0 4% 0;
-    }
-    
-    .hero2{
-     padding-left: 50px ;
-    margin-top: 70px;
-}
-    
-    
-    .h2{
-         font-size: 0.8125rem;
-}
-.h22{
-    color:#1f6bb0;
-    font-size:1.20rem;
-}
-.h2sty{
-    font-size: 1.25rem;
+  // Recalculate serial numbers
+  serialNo = 1;
+  const updatedRows = tbody.querySelectorAll("tr");
+  updatedRows.forEach((row) => {
+    row.querySelector("td").innerText = serialNo++;
+  });
 
-    
-}
- .machinimage{
-    
-    display: flex;
-    justify-content: space-between;
-    float:none;
-    margin-left: 20px;
-    
-}
-
-button
-{
-     
-    padding: 12px 12px;
-    
-    font-size: 0.75rem;
-    
-}
-button ion-icon {
-    font-size: 25px;
-   
-}
- #services{
-    width: 100%;
-    height: 85px;
-    background-color: #3090da;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    gap:50px;
-    color: #312d2d;
-    padding-bottom: 10px;
-}
-#services h2{
-    padding-top: 8x;
-    font-size: 18px;
-}
-#services h4
-{
-    padding-top: 8x;
-   font-size: 10px;
-   padding-bottom: 8px;
-   padding-right: 5px;
-   
- }
- .service-list {
-        width: 450px;
-        height: auto;
-        background-color: white;
-        margin: 20px;
-        border-radius: 10px;
-        padding-left: 10px;
-        padding-top: 2px;
-        gap: 30px;
-    }
-    .service-Added-item {
-        width: 260px;
-        height: 400px;
-        background-color: white;
-        margin-top: 20px;
-        margin-left: 100px;
-        border-radius: 10px;
-        padding-top: 5px;
-        padding-left: 8px;
-    }
-
-
-
-#service-Added-item-book{
-   width: 270px;
-    height: 240px;
-    margin-left: 100px;
-    
-    
-   
-}
-#service-Added-item-book h3{
-    padding-top: 13px;
-     padding-left: 1px;
-    text-align: left;
-     margin-top: 10px;
-     padding-left: 7px;
-     font-size: 15px;
-
-}
-#book-now-containor{
-    margin: 0 20px 2px 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    
-}
-.form-group {
-  margin-bottom: 1px;
-text-align: left;
-
-}
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-  margin-top: 2px;
-  font-size: 12px;
-  margin-left: 8px;
- 
-}
-.service-list-item label {
-  font-size: 14px;
-  font-weight: 500;
-}
-.service-list-item button {
-      
-  padding: 6px 8px;
- 
-  font-size: 14px;
-  font-weight: 300;
-  
-}
-.service-list h1 {
-  font-size: 30px;
-  font-weight: 900;
-}
-#book-now-button {
-    width: 250px;
-    margin-left: 10px;
-}
-.section-quality{
- width: 100vw;
-    height: auto;
-    margin-top: 0px;
-    
-}
-
-.Primumservice h3{
-    font-size: 15px;
-
-}
-
-.Primumservice p{
-
-  font-size: 10px;
-
-}
-th, td {
-text-align: left;
-  padding: 6px 8px;  /* use padding here */
-  vertical-align: top;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 7px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-#section-subcribe h2{
-  font-size: 25px;
-  margin-left: 10px;
-}
-.Primumservice h1{
-
-  font-size: 18px;
-
-}
-.footer-link{
-  font-size: 10px;
-  
-}
-.Primumservice p{
-    font-size: 10px;
-}
-.PrimumserviceW{
-
-  text-align: center;
-
-}
-.PrimumserviceW p{
-  font-size: 8px;
-}
-button
-{
-     
-    padding: 8px 8px;
-    
-    font-size: 0.75rem;
-    
-}
-button ion-icon {
-    font-size: 25px;
-   
-}
-#booking-confirm{
-  color:green;
-  margin-left: 5px;
-  margin-top: 6px;
-  font-size: 10px;
-  font-weight: 500;
-}
-}
-/* for small phone 0 t0 480px*/
-@media only screen and (max-width: 480px) {
-     html{
-  max-width: 100%;
-  overflow-x: hidden;
-}
-    section{padding: 25px 0;}
-    .hero-container{ padding: 0 4%;
-  width: 100%; /* use percentage instead of vw */
-  box-sizing: border-box;
-}
-    .col{
-        width: 100%;
-        margin: 0 0 4% 0;
-    }
-   .btn-container input[type="submit"] {
-    padding: 6px 6px;
-    background-color:#3090da;
-    color:#f4f4f4;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    height: 30px;
-    width: 70px;
-    font-size: 12px;
-}
-.hero2{
-  padding-left: 10px ;
-    margin-top: 70px;
-}
-.hero2 p{
-font-size: 10px;
-}
-.h2sty{
-    font-size: 15px;
-
-}
-#machinimage img{
-    
-    margin-top: 50px;
-    width: 250px;
-    height: 270px;
-    margin-left: 50px;
-}
-button
-{
-     
-    padding: 5px 5px;
-    
-    font-size: 10px;
-    
-}
-button ion-icon {
-    font-size: 20px;
-   
-}
- #services{
-    width: 100%;
-    height: 80px;
-    gap:20px;
-    padding-left: 0;
-    padding-right: 2;
-    
-}
-#services h2{
-    padding-top: 8x;
-    font-size: 16px;
-}
-.service-section{
-  
-    width: 100vw;
-    height: auto;
-    margin-top: 30px;
-
-    
-}
-.center-box{
-            width:100%;
-            height:auto;
-              background-color: #e0ddf3;
-            
-            margin: 0 auto;
-                }
-.service-list{
-    width: 450px;
-    height: auto;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-top: 2px;
-    gap:30px;
-   
-  }
-  
-.containor{
-
-    display: flex;
-    justify-content: center;
-    justify-items:center;
-    
-    margin: 0 auto;
-}
-
-#service-Added-item-book{
-margin: 0 auto;
-}
-.service-Added-item{
-    margin: 0 auto;
-}
-#section-subcribe h2{
-  font-size: 15px;
-  margin-left: 10px;
-}
-.PrimumserviceW h1{
-
-  font-size:18px;
-
-}
-.footer-link{
-  font-size: 10px;
-  gap:1px;
-}
-
-.Primumservice h3{
-    font-size: 10px;
-
-}
-.social-link{
-    font-size: 15px;
-}
-.PrimumserviceW{
-    font-size: 10px;
-
-}
-.PrimumserviceW p{
-    font-size: 8px;
-
-}
-#booking-confirm{
-  color:green;
-  margin-left: 5px;
-  margin-top: 6px;
-  font-size: 10px;
-  font-weight: 500;
-}
-
-
-}
+  document.getElementById("totalPrice").innerText = "₹" + total.toFixed(2);
 }
