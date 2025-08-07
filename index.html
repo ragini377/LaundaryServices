@@ -9,25 +9,26 @@
     <link rel="stylesheet" href="./grid.css ">
     <link rel="stylesheet" href="query.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
-     <script src="email.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $("#bookbtn").on('click', function(event) {
-      $('html, body').animate({
-        scrollTop: $("#booknow").offset().top
-      }, 800);
-    });
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+    <script src="email.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#bookbtn").on('click', function (event) {
+                $('html, body').animate({
+                    scrollTop: $("#booknow").offset().top
+                }, 800);
+            });
+        });
+    </script>
 
 </head>
 
@@ -38,8 +39,11 @@
                 <h2>Logo</h2>
             </div>
             <div>
+                <div class="hamburger" id="hamburger">
+                    &#9776;
+                </div>
                 <nav class="navbar">
-                    <ul>
+                    <ul class="nav-links" id="nav-links">
                         <li><a href="">Home</a></li>
                         <li><a href="#service-section">Services</a></li>
                         <li><a href="#section-quality">About Us</a></li>
@@ -63,7 +67,7 @@
 
                 </p>
                 <div id="btn">
-                    <button type="submit" class="btn" id="bookbtn" >
+                    <button type="submit" class="btn" id="bookbtn">
                         <ion-icon name="storefront-outline"></ion-icon>
                         Book a Service Today
                     </button>
@@ -71,12 +75,12 @@
             </div>
 
             <div id="machinimage">
-                <img src="./washing.jpg" alt="washingmachin"  data-aos="zoom-in" data-aos-duration="1000">
+                <img src="./washing.jpg" alt="washingmachin" data-aos="zoom-in" data-aos-duration="1000">
             </div>
         </div>
     </section>
     <section data-aos="fade-in" data-aos-duration="4000">
-        <div id="services" >
+        <div id="services">
             <h2>Our Achievements </h2>
             <h4>15+ <br> Laundry Services</h4>
             <div class="divider"></div>
@@ -97,18 +101,18 @@
 
                             <div class="service-list-item">
 
-                                <img src="./laundry.png" alt="laundry">
+                                <img src="./image/laundry.png" alt="laundry">
                                 <label for="DryCleaning" id="drycleanService">Dry Cleaning</label>
                                 <span class="dot">●</span>
                                 <label for="" class="price-blue" id="drycleanPrice">&#8377;200.00</label>
-                                <button  class="addBtn addServiceBtn" data-name="Dry Cleaning" data-price="200"> Add item
+                                <button class="addBtn addServiceBtn" data-name="Dry Cleaning" data-price="200"> Add item
                                     <ion-icon name="add-circle-outline" class="icon-plus"></ion-icon>
                                 </button>
 
                             </div>
                             <div class="service-list-item">
 
-                                <img src="./wash.png" alt="laundry">
+                                <img src="./image/wash.png" alt="laundry">
                                 <label for="washfold">Wash & Fold</label>
                                 <span class="dot">●</span>
                                 <label for="washfoldPrice" class="price-blue">&#8377;100.00</label>
@@ -120,7 +124,7 @@
                             </div>
                             <div class="service-list-item">
 
-                                <img src="./box.png" alt="laundry">
+                                <img src="./image/box.png" alt="laundry">
                                 <label for="Ironing">Ironing</label>
                                 <span class="dot">●</span>
                                 <label for="IroningPrice" class="price-blue">&#8377;30.00</label>
@@ -132,11 +136,12 @@
                             </div>
                             <div class="service-list-item">
 
-                                <img src="./stain-remover.png" alt="laundry">
+                                <img src="./image/stain-remover.png" alt="laundry">
                                 <label for="SatinRemoval">Satin Removal</label>
                                 <span class="dot">●</span>
                                 <label for="SatinRemovalPrice" class="price-blue">&#8377;500.00</label>
-                                <button class="addBtn addServiceBtn" data-name="Satin Removal" data-price="500"> Add item
+                                <button class="addBtn addServiceBtn" data-name="Satin Removal" data-price="500"> Add
+                                    item
                                     <ion-icon name="add-circle-outline" class="icon-plus"></ion-icon>
 
                                 </button>
@@ -144,11 +149,12 @@
                             </div>
                             <div class="service-list-item">
 
-                                <img src="./leather.png" alt="laundry">
+                                <img src="./image/leather.png" alt="laundry">
                                 <label for="Leathercleaning">Leather & Suede Cleaning</label>
                                 <span class="dot">●</span>
                                 <label for="LeathercleaningPrice" class="price-blue">&#8377;999.00</label>
-                                <button class="addBtn addServiceBtn" data-name="Leather & Suede Cleaning" data-price="999"> Add item
+                                <button class="addBtn addServiceBtn" data-name="Leather & Suede Cleaning"
+                                    data-price="999"> Add item
                                     <ion-icon name="add-circle-outline" class="icon-plus"></ion-icon>
 
                                 </button>
@@ -156,11 +162,12 @@
                             </div>
                             <div class="service-list-item">
 
-                                <img src="./wedding-dress.png" alt="laundry">
+                                <img src="./image/wedding-dress.png" alt="laundry">
                                 <label for="weddingdress">Wedding Dress Cleaning</label>
                                 <span class="dot">●</span>
                                 <label for="weddingdressPrice" class="price-blue">&#8377;2800.00</label>
-                                <button  class="addBtn addServiceBtn" data-name="Wedding Dress Cleaning" data-price="999"> Add item
+                                <button class="addBtn addServiceBtn" data-name="Wedding Dress Cleaning"
+                                    data-price="999"> Add item
                                     <ion-icon name="add-circle-outline" class="icon-plus"></ion-icon>
 
                                 </button>
@@ -182,24 +189,24 @@
                     </div>
 
                     <div class="col span_1_of_2">
-                       
+
                         <div class="service-Added-item" id="booknow">
                             <h2>Added Items</h2>
                             <div class="divider-hori-added"></div>
                             <div class="additemdisplay" style="display: none;" id="additemdisplayid">
-                               <div class="table-wrapper">
-                                <table id="serviceTable">
-                                    <thead>
-                                      <tr>
-                                            <th>S.No</th>
-                                             <th>Services</th>
-                                            <th>Price</th>
-                                    </tr>
-                                    </thead>
-                                <tbody id="tableBody">
-                                <!-- Dynamic rows go here -->
-                                </tbody>
-  <!-- <tfoot>
+                                <div class="table-wrapper">
+                                    <table id="serviceTable">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Services</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tableBody">
+                                            <!-- Dynamic rows go here -->
+                                        </tbody>
+                                        <!-- <tfoot>
     <tr id="totalRow">
       <td colspan="2" class="total-label"><strong>Total Amount</strong></td>
       <td class="total-label">
@@ -207,15 +214,15 @@
       </td>
     </tr>
   </tfoot> -->
-                                </table>
+                                    </table>
                                 </div>
                                 <div class="total-span">
-        <span class="total-label"><strong>Total Amount</strong></span>
-        <span id="totalPrice"></span>
+                                    <span class="total-label"><strong>Total Amount</strong></span>
+                                    <span id="totalPrice"></span>
                                 </div>
-                           </div>
-                    
-                             <div class="additemMsg" id="additemMsgshow">
+                            </div>
+
+                            <div class="additemMsg" id="additemMsgshow">
                                 <table>
                                     <tr>
                                         <thead>
@@ -224,116 +231,120 @@
                                             <th>Price</th>
                                         </thead>
                                     </tr>
-                                   <tr>
-                                    <td colspan="3" style="text-align: center;">
-                                        
-                                <img src="./exclamation-mark.png" alt="">
-                                <h2>Items not Added</h2>
-                                <span style="color:green">Please add items in cart</span>
-                              
-                        
-                                    </td>
-                                  
+                                    <tr>
+                                        <td colspan="3" style="text-align: center;">
+
+                                            <img src="./image/exclamation-mark.png" alt="">
+                                            <h2>Items not Added</h2>
+                                            <span style="color:green">Please add items in cart</span>
 
 
-                             
-                                   </tr>
-                                    
+                                        </td>
+
+
+
+
+                                    </tr>
+
                                 </table>
 
-                             </div>
-                            
+                            </div>
+
 
                         </div>
                         <div id="service-Added-item-book">
                             <div>
                                 <h3>Book Now</h3>
-                                
+
                                 <div id="book-now-containor">
-                                    
-             <form action="" id="contact-form">
-                <div class="form-group">
-                                    <label for="" id="fullname-lable" >Full Name</label>
-                                    <input type="text" placeholder="John Doe" name="user_name">
-                                    </div>
-                                   </div>
-                                   <div id="book-now-details">
-                                     <div class="form-row">
 
-                                    <div class="form-group half-width">
-   
-                                     <label >Email ID</label>
-                                <input type="email" placeholder="mailid@gmail.com"  name="user_email" required/>
+                                    <form action="" id="contact-form">
+                                        <div class="form-group">
+                                            <label for="" id="fullname-lable">Full Name</label>
+                                            <input type="text" placeholder="John Doe" name="user_name">
+                                        </div>
                                 </div>
-                                <div class="form-group half-width">
-                                                 <label>Phone Number</label>
-                                <input type="text" required placeholder="000000" name="user_phone" maxlength="10" pattern="\d*" inputmode="numeric"/>
+                                <div id="book-now-details">
+                                    <div class="form-row">
+
+                                        <div class="form-group half-width">
+
+                                            <label>Email ID</label>
+                                            <input type="email" placeholder="mailid@gmail.com" name="user_email"
+                                                required />
+                                        </div>
+                                        <div class="form-group half-width">
+                                            <label>Phone Number</label>
+                                            <input type="text" required placeholder="000000" name="user_phone"
+                                                maxlength="10" pattern="\d*" inputmode="numeric" />
+                                        </div>
                                     </div>
-</div>
-</div>
-</div>
-
-<button type="submit" class="submit-btn" id="book-now-button">Book now</button>
-</form>
-<div id="booking-confirm"></div>
                                 </div>
-                                
+                            </div>
 
-
-                            
-
-
+                            <button type="submit" class="submit-btn" id="book-now-button">Book now</button>
+                            </form>
+                            <div id="booking-confirm"></div>
                         </div>
+
+
+
+
+
+
                     </div>
-                    
                 </div>
 
             </div>
+
+        </div>
 
     </section>
     <section class="section-quality" id="section-quality" data-aos="fade-in" data-aos-duration="4000">
         <div class="center-box-quality">
             <div class="quality-container">
-            
+
                 <div class="Primumservice">
-                    <img src="./washing-machine.png" alt="">
+                    <img src="./image/washing-machine.png" alt="">
                     <h3>Premium Services</h3>
-                    <p>Elevate your wardrobe<br> with our 
-                    meticulous <br> cleaning,
-                    ensuring garment <br>  look and feel 
-                    as good as new.
+                    <p>Elevate your wardrobe<br> with our
+                        meticulous <br> cleaning,
+                        ensuring garment <br> look and feel
+                        as good as new.
                     </p>
-                
-            </div>
-             <div>
-                <div class="Primumservice">
-                    <img src="./support.png" alt="">
-                    <h3>Quick Support</h3>
-                    <p>We are committed to providing <br>
-                    prompt  solution to ensure your <br> experience is smooth  and <br>  worry-free
-                    ensuring garment <br>  look and feel 
-                    as good as new.
-                    </p> </div>
-            </div>
-             <div>
-                <div class="Primumservice">
-                    <img src="./courier.png" alt="">
-                    <h3>Hassle Free Delivery</h3>
-                    <p>Enjoy seamless service with our <br>
-                        convenient pickup and delivery <br>
-                        options,tailored <br> to your schedule.
-                    
-                    </p>                </div>
-            </div>
-             <div>
-                <div class="Primumservice">
-                    <img src=".//money.png" alt="">
-                    <h3>Affordable Prices</h3>
-                    <p>Experience exception care <br> without breaking the bank-our <br>
-                    affordable prices make laundry <br> day stress-free hassle <br>as good as new.
-                    </p>
+
                 </div>
-            </div>
+                <div>
+                    <div class="Primumservice">
+                        <img src="./image/support.png" alt="">
+                        <h3>Quick Support</h3>
+                        <p>We are committed to providing <br>
+                            prompt solution to ensure your <br> experience is smooth and <br> worry-free
+                            ensuring garment <br> look and feel
+                            as good as new.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="Primumservice">
+                        <img src="./image/courier.png" alt="">
+                        <h3>Hassle Free Delivery</h3>
+                        <p>Enjoy seamless service with our <br>
+                            convenient pickup and delivery <br>
+                            options,tailored <br> to your schedule.
+
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="Primumservice">
+                        <img src="./image/money.png" alt="">
+                        <h3>Affordable Prices</h3>
+                        <p>Experience exception care <br> without breaking the bank-our <br>
+                            affordable prices make laundry <br> day stress-free hassle <br>as good as new.
+                        </p>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -342,39 +353,39 @@
     <section data-aos="fade-in" data-aos-duration="4000">
         <div id="section-subcribe">
             <h2>Subscribe to our <br> newsletters. </h2>
-                                     
-                                <div id="book-now-details">
-                                     <div class="form-row">
-  <div class="subcribe-group half-width">
-   
-    <input type="text" placeholder="Full name" class="white-placeholder" />
-  </div>
-  <div class="subcribe-group half-width">
-    
-    <input type="email" placeholder="Email" class="white-placeholder"  />
-  </div> 
-  
-            
-        </div>
-        <button  class="subcribe-btn" id="subcribe-btn">Subscribe</button>
+
+            <div id="book-now-details">
+                <div class="form-row">
+                    <div class="subcribe-group half-width">
+
+                        <input type="text" placeholder="Full name" class="white-placeholder" />
+                    </div>
+                    <div class="subcribe-group half-width">
+
+                        <input type="email" placeholder="Email" class="white-placeholder" />
+                    </div>
+
+
+                </div>
+                <button class="subcribe-btn" id="subcribe-btn">Subscribe</button>
     </section>
     <footer class="footer-div">
-          <div class="center-box-quality" id="center-box-quality"  data-aos="fade-in" data-aos-duration="4000">
+        <div class="center-box-quality" id="center-box-quality" data-aos="fade-in" data-aos-duration="4000">
             <div class="quality-container">
                 <div class="PrimumserviceW">
                     <h1>Logo</h1>
                     <span>About us</span>
                     <p>Lorem ipsum dolor sit amet consectetur <br>
-                     adipisicing elit. Possimus, veritatis.</p>
+                        adipisicing elit. Possimus, veritatis.</p>
                 </div>
                 <div class="PrimumserviceW">
                     <h3>Important Links</h3>
                     <ul class="footer-link">
-                        <li>  <a href="#">About</a></li>
+                        <li> <a href="#">About</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="">Privacy Policy</a></li>
                         <li><a href="">Terms of use</a></li>
-                       <li><a href="">Refund Policy</a></li>
+                        <li><a href="">Refund Policy</a></li>
                     </ul>
                 </div>
                 <div class="PrimumserviceW">
@@ -387,54 +398,52 @@
                 <div class="PrimumserviceW">
                     <h3>Follow Us</h3>
                     <div id="section-social">
-                         <ul class="social-link footer-nav">
-                <li><ion-icon class="fb" name="logo-facebook"></ion-icon></li>
-                <li><ion-icon class="twitter" name="logo-twitter"></ion-icon></li>
-                <li><ion-icon class="google" name="logo-google"></ion-icon></li>  
-                <li><ion-icon class="insta" name="logo-instagram"></ion-icon></li>
-            </ul>
+                        <ul class="social-link footer-nav">
+                            <li><ion-icon class="fb" name="logo-facebook"></ion-icon></li>
+                            <li><ion-icon class="twitter" name="logo-twitter"></ion-icon></li>
+                            <li><ion-icon class="google" name="logo-google"></ion-icon></li>
+                            <li><ion-icon class="insta" name="logo-instagram"></ion-icon></li>
+                        </ul>
 
                     </div>
                 </div>
-                </div>
-                </div>
+            </div>
+        </div>
 
     </footer>
-     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="script.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+                    // Store hash
+                    var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-</script>
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
 
 </body>
 
 </html>
-
-
